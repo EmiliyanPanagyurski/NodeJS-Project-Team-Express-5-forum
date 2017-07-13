@@ -1,4 +1,32 @@
-h1
-    | Underconstruction ...
-h2
-    | default forum homepage
+doctype html
+html
+    include includes/head.pug
+    body(id="babout")
+        div(id="header")
+            h1NodeJS Project Forum
+        div(id="navigation")
+            ul
+                li(id="lhome") 
+                    a(href="/")
+                        | Home
+                li(id="llogin") 
+                    a(href="/login")
+                        | Log in
+                li(id="llregister")
+                    a(href="/register")
+                        | Register
+                    
+        div(id="wrapper")
+            div(id="content-wrapper")
+                div(id="content")
+                    h4
+                        | Topics  
+                    table
+                        tbody                         
+                            tr
+                                td
+                                    a(href="/topicpage")
+                                        | Topic One cell one
+                                td
+                                    | Topic One cell two
+    include includes/footer.pug
