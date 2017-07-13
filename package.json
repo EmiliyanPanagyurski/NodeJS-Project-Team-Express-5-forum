@@ -1,0 +1,21 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "Course project Node js Telerik Academy",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Emiliyan Panagyurski",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.15.3",
+    "mongodb": "^2.2.30",
+    "pug": "^2.0.0-rc.2"
+  },
+  "devDependencies": {
+    "eslint": "^4.2.0",
+    "eslint-config-google": "^0.9.1"
+  }
+}
