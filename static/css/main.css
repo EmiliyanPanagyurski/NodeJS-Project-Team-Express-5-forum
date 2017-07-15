@@ -44,6 +44,28 @@ p { margin: 0; }
 
 ul { list-style-type: square; } 
 
+#newThreadBtn{
+	float: right;
+	text-decoration: underline;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 15px; 
+	border-radius: 10px;
+	padding: 20px;
+	margin: 20px;
+
+}
+
+#newPostBtn{
+	float: right;
+	text-decoration: underline;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 15px; 
+	border-radius: 10px;
+	padding: 20px;
+	margin: 20px;
+
+}
+
 tr
 {
 	margin: 0;
@@ -55,7 +77,7 @@ tr
 	border: 1px solid #1a1a1a;
 }
 
-td { margin: 0; padding: 2px 0 5px; margin-bottom: 5px; border-bottom: 1px dotted #555555; }
+td { margin: 40px; padding: 40px; border-bottom: 1px dotted #555555; }
 
 td.last { border-bottom-width: 0; }
 
@@ -113,7 +135,6 @@ body
 	float: left;
 	width: 100%;
 	margin: 10px 0; 
-	background: transparent url(images/hr_dotted.gif) 60% 0 repeat-y; 
 }
 
 #content-wrapper
