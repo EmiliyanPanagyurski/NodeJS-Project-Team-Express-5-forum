@@ -4,7 +4,8 @@ html
 
     body(id="babout")
             div(id="header")
-                h1NodeJS Project Forum
+                h1
+                    | NodeJS Project Forum
             div(id="navigation")
                 ul
                     li(id="lhome") 
@@ -22,13 +23,16 @@ html
                     div(id="content")
                         h4
                             | Posts 
+                        button(type="button" id="newPostBtn")
+                            | Post a reply    
                         table
                             tbody                         
                                 tr
                                     td
-                                        a(href="/threadpage")
-                                            | Post One cell one
+                                        a(href="/topicpage")
+                                            h4
+                                                | Topic One cell one
                                     td
-                                        | Post One cell two
-
+                                        h4
+                                            | Topic One cell two          
     include includes/footer.pug

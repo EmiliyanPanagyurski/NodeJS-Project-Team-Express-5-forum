@@ -3,7 +3,8 @@ html
     include includes/head.pug
     body(id="babout")
         div(id="header")
-            h1NodeJS Project Forum
+            h1
+                | NodeJS Project Forum
         div(id="navigation")
             ul
                 li(id="lhome") 
@@ -14,19 +15,20 @@ html
                         | Log in
                 li(id="llregister")
                     a(href="/register")
-                        | Register
-                    
+                        | Register                   
         div(id="wrapper")
             div(id="content-wrapper")
                 div(id="content")
-                    h4
+                    h2
                         | Topics  
                     table
                         tbody                         
                             tr
                                 td
                                     a(href="/topicpage")
-                                        | Topic One cell one
+                                        h4
+                                            | Topic One cell one
                                 td
-                                    | Topic One cell two
+                                    h4
+                                        | Topic One cell two                         
     include includes/footer.pug
