@@ -32,4 +32,4 @@ const init = (data) => {
     return Promise.resolve(app);
 };
 
-module.exports = {init};
+module.exports = { init };
