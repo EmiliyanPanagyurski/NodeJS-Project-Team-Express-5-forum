@@ -8,7 +8,10 @@ class BaseMongodbData {
   }
 
   create(model) {
-    this.db.collection.insert(model);
+    return this.db.collection.insert(model)
+      .then(() => {
+        return model;
+      });
   }
 
   _getCollectionName() {
