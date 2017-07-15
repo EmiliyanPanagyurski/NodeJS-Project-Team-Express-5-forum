@@ -3,7 +3,7 @@ html
 	margin: 0;
 	padding: 0;
 	color: #aaaaaa;
-	background-color: #333333;
+	background-color: #f4f2bc;
 	font: normal 12px "Trebuchet MS", "Lucida Grande", Verdana, Georgia, Sans-Serif;
 }
 
@@ -36,8 +36,6 @@ ul, ol, dl, blockquote, pre
 	padding: 10px 30px; 
 	line-height: 1.6em;
 	border: 1px solid #1a1a1a;
-	border-top: 10px solid #151515;
-	background: #404040 url(images/navigation_hover.gif) top left repeat;
 }
 
 p { margin: 0; }
@@ -66,6 +64,10 @@ ul { list-style-type: square; }
 
 }
 
+table {
+	border: 1px solid black;
+}
+
 tr
 {
 	margin: 0;
@@ -74,14 +76,12 @@ tr
 	font-weight: bold;
 	padding: 10px 0 2px; 
 	text-transform: uppercase; 
-	border: 1px solid #1a1a1a;
+	border: 1 px solid black;
 }
 
-td { margin: 40px; padding: 40px; border-bottom: 1px dotted #555555; }
+td { margin: 40px; padding: 40px; border: 1px solid #555555; }
 
-td.last { border-bottom-width: 0; }
-
-pre { font-family: Consolas, Verdana, "Courier New"; font-size: 11px; padding: 10px 30px; }
+th {border: 1px solid black}
 
 code { color: #779955; }
 
@@ -116,7 +116,6 @@ body
 	width: 100%; 
 	clear: both;
 	border-top: 10px solid #111111;
-	background: #222222 url(images/navigation_hover.gif) top left repeat;
 }
 
 #navigation
