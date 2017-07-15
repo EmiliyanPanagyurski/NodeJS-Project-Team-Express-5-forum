@@ -1,0 +1,14 @@
+doctype html
+html
+    include includes/head.pug  
+    div
+        h4
+            | Sign In
+        form(action="/" method="POST")
+            div
+                input(type="text" required placeholder="accout")
+                input(type="text" required placeholder="password")
+            div
+                button.btn.btn-success(type="submit")
+                    | Submit
+    include includes/footer.pug         

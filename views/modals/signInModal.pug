@@ -1,0 +1,13 @@
+div.modal.fade#myModal(role="dialog")
+    div.modal-dialog    
+        div.modal-content
+            div.modal-header
+                h4.modal-title
+                    | Sign In
+        form(action="./" method="POST")
+            div.modal-body
+                input(type="text" required placeholder="accout")
+                input(type="text" required placeholder="password")
+            div.modal-footer
+                button.btn.btn-success(type="submit" data-dismiss="modal")
+                    | Submit
