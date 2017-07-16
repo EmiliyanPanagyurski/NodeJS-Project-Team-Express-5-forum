@@ -1,14 +1,26 @@
 doctype html
 html
-    include includes/head.pug  
-    div
-        h4
-            | Sign In
-        form(action="/" method="POST")
-            div
-                input(type="text" required placeholder="accout")
-                input(type="text" required placeholder="password")
-            div
-                button.btn.btn-success(type="submit")
-                    | Submit
-    include includes/footer.pug         
+    head
+        meta(charset="utf-8")
+        meta(http-equiv="X-UA-Compatible" content="IE=edge")
+        meta(name="viewport" content="width=device-width, initial-scale=1")
+        title
+            | Sign in to our forum
+        link(href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet")
+        link(href="../static/css/register.login.css" rel="stylesheet")
+    body
+        div(class="container")
+            form(action="/login" class="form-register" method="post")
+                h2(class="form-register-heading")
+                    | Please sign in
+                if msg
+                    div(class="alert alert-danger")
+                        =msg
+                label(for="inputUsername" class="sr-only")
+                    | Username
+                input(type="username" id="inputUsername" class="form-control" placeholder="Username" name="username" required autofocus)    
+                label(for="inputPassword" class="sr-only")
+                    | Password
+                input(type="password" id="inputPassword" class="form-control" placeholder="Password" name="password" required)
+                button(class="btn btn-lg btn-primary btn-block" type="submit")
+                    | Sign in      
