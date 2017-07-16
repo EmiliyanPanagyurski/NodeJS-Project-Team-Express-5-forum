@@ -1,63 +1,105 @@
 doctype html
 html
     include includes/head.pug
-    body(id="babout")
-        div(id="header")
-            h1
-                | NodeJS Project Forum
-        div(id="navigation")
-            ul
-                li(id="lhome") 
-                    a(href="/")
-                        | Home
-                li(id="llogin") 
-                    a(href="/login")
-                        | Log in
-                li(id="llregister")
-                    a(href="/register")
-                        | Register                   
-        div(id="wrapper")
-            div(id="content-wrapper")
-                div(id="content")
-                    h2
-                        | Topics  
-                    table
-                        tbody 
-                            tr
-                                th
-                                    | Here you can find Topics posted by our Admins  
-                                th  
-                                    | Aditional information                         
-                            tr
-                                td
-                                    a(href="/topic_one_page")
-                                        h4
-                                            | Topic One cell one
-                                td
-                                    h4
-                                        | Topic One cell two
-                            tr            
-                                td
-                                    a(href="/topic_two_page")
-                                        h4
-                                            | Topic One cell one
-                                td
-                                    h4
-                                        | Topic One cell two
-                            tr    
-                                td
-                                    a(href="/topic_three_page")
-                                        h4
-                                            | Topic One cell one
-                                td
-                                    h4
-                                        | Topic One cell two
-                            tr    
-                                td
-                                    a(href="/topic_four_page")
-                                        h4
-                                            | Topic One cell one
-                                td
-                                    h4
-                                        | Topic One cell two                                                                                      
-    include includes/footer.pug
+    body
+        nav(class="navbar navbar-fixed-top navbar-inverse")
+            div(class="container")
+                div(class="navbar-header")
+                    button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+                        span(class="sr-only")
+                            | Toggle navigation
+                        span(class="icon-bar")
+                        span(class="icon-bar")
+                        span(class="icon-bar")
+                    a(class="navbar-brand" href="#")
+                        | Project name
+                div(id="navbar" class="collapse navbar-collapse")
+                    ul(class="nav navbar-nav")
+                        li(class="active")
+                            a(href="/")
+                                | Home
+                        li
+                            a(href="#about")
+                                | About
+                        li
+                            a(href="#contact")
+                                | Contact
+
+        div(class="container")
+            div(class="row row-offcanvas row-offcanvas-right")
+                div(class="col-xs-12 col-sm-9")
+                    p(class="pull-right visible-xs")
+                        button(type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas")
+                            | Toggle nav
+                    div(class="jumbotron")
+                        h1
+                            | Hello, world!
+                        p
+                            | This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.
+                    div(class="row")
+                        div(class="col-xs-6 col-lg-4")
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                            p
+                                a(class="btn btn-default" href="#" role="button")
+                                    | View details &raquo;>
+                        div(class="col-xs-6 col-lg-4")
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                            p
+                                a(class="btn btn-default" href="#" role="button")
+                                    | View details &raquo;
+                        div(class="col-xs-6 col-lg-4")
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                            p
+                                a(class="btn btn-default" href="#" role="button")
+                                    | View details &raquo;
+                        div(class="col-xs-6 col-lg-4")
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                            p
+                                a(class="btn btn-default" href="#" role="button")
+                                    | View details &raquo;
+                        div(class="col-xs-6 col-lg-4")
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                            p
+                                a(class="btn btn-default" href="#" role="button")
+                                    | View details &raquo;
+                        div(class="col-xs-6 col-lg-4")
+                            h2
+                                | Heading
+                            p
+                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
+                            p
+                                a(class="btn btn-default" href="#" role="button")
+                                    | View details &raquo;
+
+                div(class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar")
+                    div(class="list-group")
+                    #user
+                    if user
+                        a(href="/profile" class="list-group-item")
+                            | Profile
+                        a(href="#" class="list-group-item")
+                            | Logout
+                    else    
+                        a(href="/register" class="list-group-item")
+                            | Register
+                        a(href="/login" class="list-group-item")
+                            | Login
+        hr
+        footer
+            p
+                | &copy; 2016 Company, Inc.
