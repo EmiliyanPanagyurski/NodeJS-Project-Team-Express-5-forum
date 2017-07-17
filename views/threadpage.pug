@@ -47,7 +47,7 @@ html
                             | Profile
                         a(href="/logout" class="list-group-item")
                             | Logout
-                        a(href="/create/:id" class="list-group-item")
+                        a(href="/createpost/" + posts[0].parent class="list-group-item")
                             | Post a reply
                     else    
                         a(href="/register" class="list-group-item active")

@@ -24,38 +24,31 @@ html
                         li
                             a(href="#contact")
                                 | Contact
-
         div(class="container")
             div(class="row row-offcanvas row-offcanvas-right")
                 div(class="col-xs-12 col-sm-9")
                     p(class="pull-right visible-xs")
-                        button(type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas")
-                            | Toggle nav
                     div(class="jumbotron")
                         h1
                             | Hello, world!
                         p
                             | This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.
-                    div(class="row")
-                        include includes/thread.generator.pug                    
-                div(class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar")
-                    div(class="list-group")
-                    #user
-                    if user
-                        a(href="/profile" class="list-group-item active")
-                            | Profile
-                        a(href="/logout" class="list-group-item")
-                            | Logout
-                        a(href="/createthread/" + id class="list-group-item")
-                            | Create a new Thread
-                    else    
-                        a(href="/register" class="list-group-item active")
-                            | Register
-                        a(href="/login" class="list-group-item")
-                            | Login
-        hr
-        footer
-            p
-                | &copy; 2016 Company, Inc.
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
-    script(src="../static/js/offcanvas.js")
+            form(method="post" action="/createthread/" + id)
+                div(class="form-group")
+                    label(for="selectTopic")
+                        | Select Topic
+                    select(class="form-control" id="selectTopic")
+                        option
+                            | 1                   
+                    small(id="topicHelp" class="form-text text-muted")
+                        | Select the Topic your Thread will be created in
+                div(class="form-group")
+                    label(for="inputName")
+                        | Thread name
+                    input(type="text" class="form-control" id="inputName" placeholder="Thread name" name="name")                
+                div(class="form-group")
+                    label(for="threadTextarea")
+                        | Content
+                    textarea(class="form-control" id="threadTextarea" rows="3" name="content")
+                button(type="submit" class="btn btn-primary")
+                    | Submit
