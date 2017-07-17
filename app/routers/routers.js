@@ -4,6 +4,7 @@ const init = (app, data) => {
     require('./post.router').init(app, data);
 
     app.get('/', (req, res) => {
+        console.log(req.session.user);
         res.render('homepage');
     });
 
@@ -17,12 +18,7 @@ const init = (app, data) => {
 
     app.get('/logout', (req, res) => {
         req.logout();
-
         res.redirect('/');
-    });
-
-    app.get('/profile', (req, res) => {
-        res.render('profile');
     });
 
     app.get('/invalid', (req, res) => {

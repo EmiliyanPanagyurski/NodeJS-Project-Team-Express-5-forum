@@ -2,10 +2,11 @@ const ThreadModel = require('../../../models/thread.model');
 
 const init = (data) => {
     const ThreadsData = data.threads;
+    const PostsData = data.posts;
 
     return {
         newThread: (req, res) => {
-            const parent = req.body.parent;
+            const parent = req.params.id;
             const name = req.body.name;
             const createdBy = req.body.createdBy;
             const content = req.body.content;
@@ -14,17 +15,24 @@ const init = (data) => {
                 parent: parent,
                 name: name,
                 createdBy: createdBy,
-                content: content,
                 createdOn: createdOn,
+                content: content,
             }).then((createdThread) => {
-                return res.render('threadpage',
-                    { createdThread: createdThread });
+                PostsData.create({
+                    parent: createdThread._id,
+                    createdBy: createdThread.createdBy,
+                    content: createdThread.content,
+                    createdOn: createdThread.createdOn,
+                }).then((createdpost) => {
+                    return res.redirect('/threadpage/' + createdpost.parent);
+                });
             });
         },
         getThreads: (req, res) => {
             return ThreadsData.filterBy( { parent: req.params.id })
                 .then((threads) => {
-                    return res.render('topicpage', { threads: threads });
+                    return res.render('topicpage',
+                        { id: req.params.id, threads: threads });
                 });
         },
     };

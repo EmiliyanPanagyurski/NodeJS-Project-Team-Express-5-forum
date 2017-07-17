@@ -28,7 +28,8 @@ const init = (data) => {
 
     // global var
     app.use( function(req, res, next) {
-        res.locals.user = req.user || null;
+        res.locals.user = req.user;
+        res.locals.authenticated = req.isAuthenticated();
         next();
     });
 

@@ -2,12 +2,16 @@ const init = (app, data) => {
     const PostController = require('./controller').init(data);
 
     app.get('/threadpage/:id', PostController.getPosts);
-    
-    app.get('/create/:id', (req, res) => {
-        res.render('create', { id: req.params.id });
+
+     app.get('/createpost/:id', (req, res) => {
+        if (req.isAuthenticated()) {
+            res.render('createpost', { id: req.params.id });
+        } else {
+            res.status(404).send('not loged in!');
+        }
     });
 
-    app.post('/create/:id', PostController.newPost);
+    app.post('/createpost/:id', PostController.newPost);
 };
 
 module.exports = { init };

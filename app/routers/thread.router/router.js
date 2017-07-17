@@ -3,11 +3,15 @@ const init = (app, data) => {
 
     app.get('/topic/:id', ThreadController.getThreads);
 
-    app.get('/create/:id', (req, res) => {
-        res.render('create', { id: req.params.id });
+    app.get('/createthread/:id', (req, res) => {
+        if (req.isAuthenticated()) {
+            res.render('createthread', { id: req.params.id });
+        } else {
+            res.status(404).send('not loged in!');
+        }
     });
 
-    app.post('/create/:id', ThreadController.newThread);
+    app.post('/createthread/:id', ThreadController.newThread);
 };
 
 module.exports = { init };

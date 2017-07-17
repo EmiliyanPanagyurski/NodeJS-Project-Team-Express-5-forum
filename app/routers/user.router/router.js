@@ -34,6 +34,14 @@ const init = (app, data) => {
             });
         });
 
+    app.get('/profile/:id', (req, res) => {
+        if (req.isAuthenticated()) {
+            res.render('profile');
+        } else {
+            res.status(404).send('not loged in!');
+        }
+    });
+
     app.post('/register', UserController.register);
 
     app.post('/login', passport.authenticate('local',

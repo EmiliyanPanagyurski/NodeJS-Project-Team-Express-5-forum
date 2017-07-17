@@ -22,7 +22,7 @@ const init = (data) => {
                         lastName: '',
                         signature: '',
                     }).then((createdUser) => {
-                        return res.render('profile');
+                        return res.render('profile', { id: createdUser._id });
                     });
                 });
         },

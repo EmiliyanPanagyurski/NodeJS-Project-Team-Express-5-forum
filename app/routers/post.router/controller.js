@@ -1,3 +1,5 @@
+const ObjectId = require('mongodb').ObjectId;
+
 const init = (data) => {
     const PostData = data.posts;
     return {
@@ -12,12 +14,12 @@ const init = (data) => {
                 content: content,
                 createdOn: createdOn,
             }).then((createdPost) => {
-                return res.render('threadpage',
-                    { createdPost: createdPost });
+                return res.render('threadpage/' + req.params.id,
+                     { id: req.params.id });
             });
         },
         getPosts: (req, res) => {
-            return PostData.filterBy( { parent: req.params.id })
+            return PostData.filterBy( { parent: new ObjectId(req.params.id) })
                 .then((posts) => {
                     return res.render('threadpage', { posts: posts });
                 });
