@@ -26,6 +26,12 @@ const init = (data) => {
     app.use('/static', express.static('static'));
     app.use(flash());
 
+    // global var
+    app.use( function(req, res, next) {
+        res.locals.user = req.user || null;
+        next();
+    });
+
     //  end config 
     require('./routers').init(app, data);
 

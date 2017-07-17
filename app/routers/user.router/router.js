@@ -36,9 +36,12 @@ const init = (app, data) => {
 
     app.post('/register', UserController.register);
 
-    app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/invalid', failureFlash: true }),
+    app.post('/login', passport.authenticate('local',
+        { successRedirect: '/',
+          failureRedirect: '/invalid',
+          failureFlash: true }),
         function(req, res) {
-            res.redirect('/');
+            res.render('homepage');
         });
 };
 

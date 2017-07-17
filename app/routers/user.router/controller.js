@@ -1,9 +1,7 @@
 const UserModel = require('../../../models/user.model');
 
 const init = (data) => {
-
     return {
-
         register: (req, res) => {
             const username = req.body.username;
             const password = req.body.password;
