@@ -43,7 +43,7 @@ html
                             p
                                 | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
                             p
-                                a(class="btn btn-default" href="#" role="button")
+                                a(class="btn btn-default" href="/topic/1" role="button")
                                     | View details &raquo;>
                         div(class="col-xs-6 col-lg-4")
                             h2
@@ -90,12 +90,12 @@ html
                     div(class="list-group")
                     #user
                     if user
-                        a(href="/profile" class="list-group-item")
+                        a(href="/profile" class="list-group-item active")
                             | Profile
-                        a(href="#" class="list-group-item")
+                        a(href="/logout" class="list-group-item")
                             | Logout
                     else    
-                        a(href="/register" class="list-group-item")
+                        a(href="/register" class="list-group-item active")
                             | Register
                         a(href="/login" class="list-group-item")
                             | Login
@@ -103,3 +103,5 @@ html
         footer
             p
                 | &copy; 2016 Company, Inc.
+    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
+    script(src="../static/js/offcanvas.js")

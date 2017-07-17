@@ -1,0 +1,11 @@
+if posts
+  each post in posts
+    div(class="media")
+      div(class="media-left")
+        img(src="../../static/images/default-img.gif" class="media-object" style="width:60px")
+      div(class="media-body")
+        h4(class="media-heading")
+          = post.createdBy
+          small 
+            = 'Posted on ' +  post.createdOn
+        p= post.content
