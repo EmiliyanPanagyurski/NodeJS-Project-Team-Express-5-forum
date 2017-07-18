@@ -88,9 +88,8 @@ html
 
                 div(class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar")
                     div(class="list-group")
-                    #user
                     if authenticated
-                        a(href="/profile/" + id class="list-group-item active")
+                        a(href="/profile/" + user[0]._id class="list-group-item active")
                             | Profile
                         a(href="/logout" class="list-group-item")
                             | Logout

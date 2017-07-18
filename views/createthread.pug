@@ -34,14 +34,13 @@ html
                         p
                             | This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.
             form(method="post" action="/createthread/" + id)
-                div(class="form-group")
-                    label(for="selectTopic")
-                        | Select Topic
-                    select(class="form-control" id="selectTopic")
-                        option
-                            | 1                   
-                    small(id="topicHelp" class="form-text text-muted")
-                        | Select the Topic your Thread will be created in
+                fieldset(disabled)
+                    div(class="form-group")
+                        label(for="selectTopic")
+                            | Created by:
+                        input(type="text" class="form-control" id="disabledInput" placeholder= user[0].username)                 
+                        small(id="createHelp" class="form-text text-muted")
+                            | who created this.
                 div(class="form-group")
                     label(for="inputName")
                         | Thread name
