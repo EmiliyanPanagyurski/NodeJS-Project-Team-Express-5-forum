@@ -4,7 +4,7 @@ const init = (data) => {
     const PostData = data.posts;
     return {
         newPost: (req, res) => {
-            const parent = req.params.id;
+            const parent = new ObjectId(req.params.id);
             const createdBy = req.body.createdBy;
             const content = req.body.content;
             const createdOn = new Date();
@@ -20,7 +20,6 @@ const init = (data) => {
         getPosts: (req, res) => {
             return PostData.filterBy( { parent: new ObjectId(req.params.id) })
                 .then((posts) => {
-                    console.log(posts);
                     return res.render('threadpage', { posts: posts });
                 });
         },

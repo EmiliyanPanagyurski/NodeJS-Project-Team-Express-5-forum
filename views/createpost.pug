@@ -34,13 +34,12 @@ html
                         p
                             | This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.
             form(method="post" action="/createpost/" + id)
-                fieldset(disabled)
-                    div(class="form-group")
-                        label(for="selectTopic")
-                            | Created by:
-                        input(type="text" class="form-control" id="disabledInput" placeholder= user[0].username)                 
-                        small(id="createHelp" class="form-text text-muted")
-                            | who created this.              
+                div(class="form-group")
+                    label(for="selectTopic")
+                        | Created by:
+                    input(type="text" class="form-control" id="disabledInput" placeholder= user[0].username readonly="true")                 
+                    small(id="createHelp" class="form-text text-muted")
+                        | who created this.              
                 div(class="form-group")
                     label(for="threadTextarea")
                         | Content
