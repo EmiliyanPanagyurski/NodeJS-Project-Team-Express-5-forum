@@ -4,7 +4,6 @@ const init = (app, data) => {
     require('./post.router').init(app, data);
 
     app.get('/', (req, res) => {
-        console.log(req.session.user);
         res.render('homepage');
     });
 

@@ -1,5 +1,3 @@
-const ThreadModel = require('../../../models/thread.model');
-
 const init = (data) => {
     const ThreadsData = data.threads;
     const PostsData = data.posts;
@@ -8,7 +6,7 @@ const init = (data) => {
         newThread: (req, res) => {
             const parent = req.params.id;
             const name = req.body.name;
-            const createdBy = req.body.createdBy;
+            const createdBy = req.user[0].username;
             const content = req.body.content;
             const createdOn = new Date();
             ThreadsData.create({
