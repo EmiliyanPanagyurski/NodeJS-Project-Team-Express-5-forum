@@ -18,6 +18,13 @@ class BaseMongodbData {
       .toArray();
   }
 
+  update(querry, prop) {
+        return this.collection.update(querry, { $set: prop })
+            .then((updatedUser) => {
+                return updatedUser;
+            });
+    }
+
   _getCollectionName() {
     return this.ModelClass.name.toLowerCase() + 's';
   }
