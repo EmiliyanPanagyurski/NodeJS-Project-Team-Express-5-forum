@@ -26,6 +26,18 @@ const init = (data) => {
                     });
                 });
         },
+            updateProfile: (req, res) => {
+                const UsersData = data.users;
+                UsersData.update({ username: req.body.username },
+                    {
+                        firstName: req.body.firstname,
+                        lastName: req.body.lastname,
+                        signature: req.body.signature,
+                    })
+                    .then(() => {
+                        return res.redirect('/profile/'+ req.user._id);
+                    });
+            },
 
     };
 };
