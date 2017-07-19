@@ -11,6 +11,8 @@ const init = (app, data) => {
         }
     });
 
+    app.get('/profile/user/:id', UserController.getPublicProfile);
+
     app.post('/register', UserController.register);
 
     app.post('/profile/:id', UserController.updateProfile);
