@@ -2,10 +2,10 @@ const init = (app, data) => {
     require('./user.router/').init(app, data);
     require('./thread.router').init(app, data);
     require('./post.router').init(app, data);
+    require('./thread.router/controller').init(data);
+    const ThreadsController = require('./thread.router/controller').init(data);
 
-    app.get('/', (req, res) => {
-        res.render('homepage');
-    });
+    app.get('/', ThreadsController.getLatestThreads);
 
     app.get('/register', (req, res) => {
         res.render('register');
