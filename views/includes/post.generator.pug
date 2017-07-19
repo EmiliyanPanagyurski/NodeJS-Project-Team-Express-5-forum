@@ -5,7 +5,8 @@ if posts
         img(src="../../static/images/default-img.gif" class="media-object" style="width:60px")
       div(class="media-body")
         h4(class="media-heading")
-          = post.createdBy
+          a(href="/profile/user/" + post.createdById)
+            = post.createdBy
           small 
             = 'Posted on ' +  post.createdOn
         p= post.content

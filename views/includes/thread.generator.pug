@@ -1,7 +1,12 @@
 each thread in threads 
-    div(class="row")
+    div(class="col")
         div(class="col-xs-6 col-lg-4")
             h2= thread.name
-            p= "Created by " + thread.createdBy + " on " +  thread.createdOn + "."
-                a(class="btn btn-default" href="/threadpage/" + thread._id role="button")
-                    | View details &raquo;>;
+            p 
+                = 'Created by '
+                a(href="/profile/user/" + thread.createdById)
+                    = thread.createdBy
+                =' on ' + thread.createdOn + '.'
+            p
+                a(class="btn btn-primary" href="/threadpage/" + thread._id role="button")
+                    | View details &raquo;>
