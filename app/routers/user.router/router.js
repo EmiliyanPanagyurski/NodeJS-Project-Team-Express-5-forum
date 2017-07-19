@@ -24,6 +24,10 @@ const init = (app, data) => {
         function(req, res) {
             res.render('homepage');
         });
+
+    app.post('/static/images/:id', (req, res) => {
+        res.redirect('/profile/' + req.params.id);
+    });
 };
 
 module.exports = { init };
