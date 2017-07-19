@@ -36,6 +36,20 @@ const init = (data) => {
                         { id: req.params.id, threads: threads });
                 });
         },
+        getLatestThreads: (req, res) => {
+            return ThreadsData.filterBy()
+                .then((threads) => {
+                    const count = threads.length - 1;
+                    return res.render('homepage',
+                        {
+                            threads:
+                                [threads[count],
+                                threads[count - 1],
+                                threads[count - 2],
+                                threads[count - 3]],
+                        });
+                });
+        },
     };
 };
 
