@@ -16,6 +16,9 @@ html
                 if msg
                     div(class="alert alert-danger")
                         =msg
+                if msgLogin
+                    div(class="alert alert-success")
+                        =msgLogin
                 label(for="inputUsername" class="sr-only")
                     | Username
                 input(type="username" id="inputUsername" class="form-control" placeholder="Username" name="username" required autofocus)    
