@@ -5,12 +5,14 @@ const init = (data) => {
     return {
         newPost: (req, res) => {
             const parent = new ObjectId(req.params.id);
-            const createdBy = req.body.createdBy;
+            const createdBy = req.user[0].username;
             const content = req.body.content;
             const createdOn = new Date();
+            const createdById = req.user[0]._id;
             PostData.create({
                 parent: parent,
                 createdBy: createdBy,
+                createdById: createdById,
                 content: content,
                 createdOn: createdOn,
             }).then((createdPost) => {
