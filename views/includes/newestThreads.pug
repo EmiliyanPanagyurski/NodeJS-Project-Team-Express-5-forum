@@ -1,0 +1,14 @@
+each thread in threads
+    div(class="col-sm-6")
+        div(class="card")
+            div(class="card-block")
+                h3(class="card-title")
+                    = thread.name
+                p(class="card-text")
+                    = 'Created by '
+                    a(href="/profile/user/" + thread.createdById)
+                        = thread.createdBy
+                small 
+                    = ' on ' + thread.createdOn
+                a(href="threadpage/" + thread._id class="btn btn-primary")
+                    | Check it out!
