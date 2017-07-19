@@ -1,0 +1,70 @@
+doctype html
+html
+    include includes/head.pug
+    body
+        nav(class="navbar navbar-fixed-top navbar-inverse")
+            div(class="container")
+                div(class="navbar-header")
+                    button(type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar")
+                        span(class="sr-only")
+                            | Toggle navigation
+                        span(class="icon-bar")
+                        span(class="icon-bar")
+                        span(class="icon-bar")
+                    a(class="navbar-brand" href="#")
+                        | Project name
+                div(id="navbar" class="collapse navbar-collapse")
+                    ul(class="nav navbar-nav")
+                        li(class="active")
+                            a(href="/")
+                                | Home
+                        li
+                            a(href="#about")
+                                | About
+                        li
+                            a(href="#contact")
+                                | Contact
+        div(class="container")
+            h1
+                =username 
+                |  Profile
+            hr
+            div(class="row")
+            <!-- left column -->
+            div(class="col-md-3")
+                div(class="text-center")
+                    img(src="../static/images/default-img.gif" class="avatar img-circle" alt="avatar")
+            
+            <!-- edit form column -->
+            div(class="col-md-9 personal-info")
+                h3
+                    | Personal info
+                div(class="form-group")
+                    label(class="col-lg-3 control-label")
+                        | First name:
+                    div(class="col-lg-8")
+                        input(class="form-control" type="text" value=firstName name="firstName" readonly="true")
+                div(class="form-group")
+                    label(class="col-lg-3 control-label")
+                        | Last name:
+                    div(class="col-lg-8")
+                        input(class="form-control" type="text" value=lastName name="lastName" readonly="true")
+                div(class="form-group")
+                    label(class="col-lg-3 control-label")
+                        | Username
+                    div(class="col-lg-8")
+                        input(class="form-control" type="text" value=username name="username" readonly="true")
+                div(class="form-group")
+                    label(class="col-lg-3 control-label")
+                        | Email:
+                    div(class="col-lg-8")
+                        input(class="form-control" type="text" value=email name="email" readonly="true")
+                div(class="form-group")
+                    label(class="col-lg-3 control-label")
+                        | Signature:
+                    div(class="col-lg-8")
+                        input(class="form-control" type="text" value=signature name="signature" readonly="true")
+
+        hr
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
