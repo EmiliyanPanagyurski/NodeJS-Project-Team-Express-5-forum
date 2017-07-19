@@ -44,47 +44,27 @@ html
                                 | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
                             p
                                 a(class="btn btn-primary" href="/topic/1" role="button")
-                                    | View details &raquo;>
+                                    | Check it out!
                         div(class="col-xs-6 col-lg-4")
                             h2
                                 | Heading
                             p
                                 | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
                             p
-                                a(class="btn btn-primary" href="#" role="button")
-                                    | View details &raquo;
+                                a(class="btn btn-primary" href="/topic/2" role="button")
+                                    | Check it out!
                         div(class="col-xs-6 col-lg-4")
                             h2
                                 | Heading
                             p
                                 | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
                             p
-                                a(class="btn btn-primary" href="#" role="button")
-                                    | View details &raquo;
-                        div(class="col-xs-6 col-lg-4")
-                            h2
-                                | Heading
-                            p
-                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                            p
-                                a(class="btn btn-primary" href="#" role="button")
-                                    | View details &raquo;
-                        div(class="col-xs-6 col-lg-4")
-                            h2
-                                | Heading
-                            p
-                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                            p
-                                a(class="btn btn-primary" href="#" role="button")
-                                    | View details &raquo;
-                        div(class="col-xs-6 col-lg-4")
-                            h2
-                                | Heading
-                            p
-                                | Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.
-                            p
-                                a(class="btn btn-primary" href="#" role="button")
-                                    | View details &raquo;
+                                a(class="btn btn-primary" href="/topic/3" role="button")
+                                    | Check it out!
+                    div(class="row")
+                        h2
+                            | Latest Threads
+                        include includes/newestThreads.pug
 
                 div(class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar")
                     div(class="list-group")
@@ -99,8 +79,5 @@ html
                         a(href="/login" class="list-group-item")
                             | Login
         hr
-        footer
-            p
-                | &copy; 2016 Company, Inc.
-    script(src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js")
     script(src="../static/js/offcanvas.js")
+    include includes/footer.pug
