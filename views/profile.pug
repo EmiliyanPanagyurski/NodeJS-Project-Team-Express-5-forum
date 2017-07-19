@@ -35,7 +35,9 @@ html
                     img(src="../static/images/default-img.gif" class="avatar img-circle" alt="avatar")
                     h6
                         | Upload a different photo...
-                    input(type="file" class="form-control")
+                    form(class="form-horizontal" role="form" method="post" action="/static/images/" + user[0]._id)
+                        input(type="file" class="form-control")
+                        input(type="submit" class="forn-contrl")
             
             <!-- edit form column -->
             div(class="col-md-9 personal-info")
@@ -71,11 +73,10 @@ html
                             | Signature:
                         div(class="col-lg-8")
                             input(class="form-control" type="text" value=user[0].signature name="signature")
-                    <div class="form-group">
-                        <label class="col-md-3 control-label"></label>
-                        <div class="col-md-8">
-                            <input type="submit" class="btn btn-primary" value="Save Changes">
+                    div(class="form-group")
+                        label(class="col-md-3 control-label")
+                        div(class="col-md-8")
+                            input(type="submit" class="btn btn-primary" value="Save Changes")
 
         hr
     
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
