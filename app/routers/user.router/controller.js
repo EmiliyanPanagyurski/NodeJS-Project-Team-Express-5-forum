@@ -20,6 +20,7 @@ const init = (data) => {
                         firstName: '',
                         lastName: '',
                         signature: '',
+                        img: 'default-image.gif',
                     }).then((createdUser) => {
                         return res.render('login',
                         { msgLogin: 'Successfull registration, now you can log in!' });
@@ -35,6 +36,15 @@ const init = (data) => {
                 })
                 .then(() => {
                     return res.redirect('/profile/' + req.user._id);
+                });
+        },
+        updateProfileImage: (req, res) => {
+            UsersData.update({ username: req.user[0].username },
+                {
+                    img: req.file.originalname,
+                })
+                .then(() => {
+                    return res.redirect('/profile/' + req.user[0]._id);
                 });
         },
         getPublicProfile: (req, res) => {

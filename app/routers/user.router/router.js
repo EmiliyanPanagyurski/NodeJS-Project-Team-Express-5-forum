@@ -1,10 +1,15 @@
 const passport = require('passport');
+const multer = require('multer');
 
 const init = (app, data) => {
     const UserController = require('./controller').init(data);
 
+    const Storage = require('./imgUploaderConfig').init();
+    const upload = multer({ storage: Storage });
+
     app.get('/profile/:id', (req, res) => {
         if (req.isAuthenticated()) {
+            // id's must be equeall for loged in user and :id
             res.render('profile', { user: req.user });
         } else {
             res.status(404).send('not loged in!');
@@ -15,7 +20,7 @@ const init = (app, data) => {
 
     app.post('/register', UserController.register);
 
-    app.post('/profile/:id', UserController.updateProfile);
+    app.post('/profile/:id/update', UserController.updateProfile);
 
     app.post('/login', passport.authenticate('local',
         { successRedirect: '/',
@@ -25,9 +30,9 @@ const init = (app, data) => {
             res.render('homepage');
         });
 
-    app.post('/static/images/:id', (req, res) => {
-        res.redirect('/profile/' + req.params.id);
-    });
+    app.post('/profile/img',
+        upload.single('imgUploader'),
+        UserController.updateProfileImage);
 };
 
 module.exports = { init };
