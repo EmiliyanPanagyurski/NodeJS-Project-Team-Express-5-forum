@@ -32,12 +32,12 @@ html
             <!-- left column -->
             div(class="col-md-3")
                 div(class="text-center")
-                    img(src="../static/images/default-img.gif" class="avatar img-circle" alt="avatar")
+                    img(src="../static/images/uploads/" + user[0]._id + user[0].img class="avatar img-circle" alt="avatar")
                     h6
                         | Upload a different photo...
-                    form(class="form-horizontal" role="form" method="post" action="/static/images/" + user[0]._id)
-                        input(type="file" class="form-control")
-                        input(type="submit" class="forn-contrl")
+                    form(class="form-horizontal" method="post" enctype="multipart/form-data" action="/profile/img")
+                        input(type="file" class="form-control" name="imgUploader" single)
+                        input(type="submit" class="forn-contrl" value="Upload")
             
             <!-- edit form column -->
             div(class="col-md-9 personal-info")
@@ -47,7 +47,7 @@ html
                     This is an <strong>.alert</strong>. Use this to show important messages to the user.
                 h3
                     | Personal info
-                form(class="form-horizontal" role="form" method="post" action="/profile/" + user[0]._id)
+                form(class="form-horizontal" role="form" method="post" action="/profile/" + user[0]._id + "/update")
                     div(class="form-group")
                         label(class="col-lg-3 control-label")
                             | First name:

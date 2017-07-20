@@ -30,5 +30,15 @@ html
             div(class="starter-template")
                 a(class="class=btn btn-lg btn-success" role="button" href="/register")
                     | Register
+        if uploadFail
+        div(class="container")
+            div(class="starter-template")
+                h1
+                    | Sorry!
+                h2
+                    | No such user exist !
+            div(class="starter-template")
+                a(class="class=btn btn-lg btn-success" role="button" href="/register")
+                    | Register
 
     include includes/footer.pug
