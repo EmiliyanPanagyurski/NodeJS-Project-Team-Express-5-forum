@@ -18,6 +18,10 @@ html
                         li(class="active")
                             a(href="/")
                                 | Home
+                        if user
+                            li
+                                a(href="/chatroom")
+                                    | Chat Room
                         li
                             a(href="/about")
                                 | About

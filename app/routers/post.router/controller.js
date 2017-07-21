@@ -13,6 +13,7 @@ const init = (data) => {
                 parent: parent,
                 createdBy: createdBy,
                 createdById: createdById,
+                createdByImg: req.user[0].img,
                 content: content,
                 createdOn: createdOn,
             }).then((createdPost) => {

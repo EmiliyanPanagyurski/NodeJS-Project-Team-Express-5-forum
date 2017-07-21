@@ -2,7 +2,10 @@ if posts
   each post in posts
     div(class="media")
       div(class="media-left")
-        img(src="../../static/images/default-img.gif" class="media-object" style="width:60px")
+        if post.createdByImg === 'default-img.gif'
+          img(src="../static/images/uploads/" + post.createdByImg class="avatar img-circle" alt="avatar" style="width:60px")
+        else
+          img(src="../static/images/uploads/" + post.createdById + post.createdByImg class="avatar img-circle" alt="avatar" style="width:60px")
       div(class="media-body")
         h4(class="media-heading")
           a(href="/profile/user/" + post.createdById)

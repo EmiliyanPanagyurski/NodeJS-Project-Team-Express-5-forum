@@ -20,7 +20,7 @@ const init = (data) => {
                         firstName: '',
                         lastName: '',
                         signature: '',
-                        img: 'default-image.gif',
+                        img: 'default-img.gif',
                     }).then((createdUser) => {
                         return res.render('login',
                         { msgLogin: 'Successfull registration, now you can log in!' });
@@ -49,14 +49,16 @@ const init = (data) => {
         },
         getPublicProfile: (req, res) => {
             UsersData.filterBy({ _id: new ObjectId(req.params.id) })
-                .then((user) => {
+                .then((users) => {
                     return res.render('publicprofile',
                         {
-                            username: user[0].username,
-                            firstName: user[0].firstName,
-                            lastName: user[0].lastName,
-                            email: user[0].email,
-                            signature: user[0].signature,
+                            username: users[0].username,
+                            firstName: users[0].firstName,
+                            lastName: users[0].lastName,
+                            email: users[0].email,
+                            signature: users[0].signature,
+                            img: users[0].img,
+                            id: users[0]._id,
                         }
                     );
                 });

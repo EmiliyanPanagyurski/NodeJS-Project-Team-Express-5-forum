@@ -32,7 +32,10 @@ html
             <!-- left column -->
             div(class="col-md-3")
                 div(class="text-center")
-                    img(src="../static/images/uploads/" + user[0]._id + user[0].img class="avatar img-circle" alt="avatar")
+                    if user[0].img === 'default-img.gif'
+                        img(src="../static/images/uploads/" + user[0].img class="avatar img-circle" alt="avatar")
+                    else
+                        img(src="../static/images/uploads/" + user[0]._id + user[0].img class="avatar img-circle" alt="avatar")
                     h6
                         | Upload a different photo...
                     form(class="form-horizontal" method="post" enctype="multipart/form-data" action="/profile/img")

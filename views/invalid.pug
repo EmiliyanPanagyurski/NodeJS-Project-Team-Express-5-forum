@@ -9,36 +9,23 @@ html
         link(href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet")
         link(href="../static/css/invalid.css" rel="stylesheet")
     body
-        if invalidNameandPassword
-        div(class="container")
-            div(class="starter-template")
-                h1
-                    | Sorry!
-                h2
-                    | Wrong username or password
-            div(class="starter-template")
-                a(class="class=btn btn-lg btn-success" role="button" href="/login")
-                    | Try aggain!
-
         if userNotExsit
-        div(class="container")
-            div(class="starter-template")
-                h1
-                    | Sorry!
-                h2
-                    | No such user exist !
-            div(class="starter-template")
-                a(class="class=btn btn-lg btn-success" role="button" href="/register")
-                    | Register
-        if uploadFail
-        div(class="container")
-            div(class="starter-template")
-                h1
-                    | Sorry!
-                h2
-                    | No such user exist !
-            div(class="starter-template")
-                a(class="class=btn btn-lg btn-success" role="button" href="/register")
-                    | Register
-
-    include includes/footer.pug
+            div(class="container")
+                div(class="starter-template")
+                    h1
+                        | Sorry!
+                    h2
+                        = userNotExsit
+                div(class="starter-template")
+                    a(class="class=btn btn-lg btn-success" role="button" href="/register")
+                        | Register
+        if notLogedIn
+            div(class="container")
+                div(class="starter-template")
+                    h1
+                        | Sorry!
+                    h2
+                        = notLogedIn
+                div(class="starter-template")
+                    a(class="class=btn btn-lg btn-success" role="button" href="/login")
+                        | Log in

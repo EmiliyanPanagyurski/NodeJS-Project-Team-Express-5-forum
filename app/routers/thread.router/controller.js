@@ -8,6 +8,7 @@ const init = (data) => {
             const name = req.body.name;
             const createdBy = req.user[0].username;
             const createdById = req.user[0]._id;
+            const createdByImg = req.user[0].img;
             const content = req.body.content;
             const createdOn = new Date();
             ThreadsData.create({
@@ -15,6 +16,7 @@ const init = (data) => {
                 name: name,
                 createdBy: createdBy,
                 createdById: createdById,
+                createdByImg: createdByImg,
                 createdOn: createdOn,
                 content: content,
             }).then((createdThread) => {
@@ -22,6 +24,7 @@ const init = (data) => {
                     parent: createdThread._id,
                     createdBy: createdThread.createdBy,
                     createdById: createdThread.createdById,
+                    createdByImg: createdThread.createdByImg,
                     content: createdThread.content,
                     createdOn: createdThread.createdOn,
                 }).then((createdpost) => {
@@ -39,14 +42,45 @@ const init = (data) => {
         getLatestThreads: (req, res) => {
             return ThreadsData.filterBy()
                 .then((threads) => {
-                    const count = threads.length - 1;
+                    const count = threads.length;
+
+                    if (count === 0) {
+                        return res.render('homepage', { threads: [] });
+                    }
+
+                    if (count === 1) {
+                        return res.render('homepage',
+                            {
+                                threads: [threads[count - 1]],
+                            });
+                    }
+
+                    if (count === 2) {
+                         return res.render('homepage',
+                            {
+                                threads:
+                                    [threads[count - 1],
+                                    threads[count - 2]],
+                            });
+                    }
+
+                    if (count === 3) {
+                        return res.render('homepage',
+                            {
+                                threads:
+                                    [threads[count - 1],
+                                    threads[count - 2],
+                                    threads[count - 3]],
+                            });
+                    }
+
                     return res.render('homepage',
                         {
                             threads:
-                                [threads[count],
-                                threads[count - 1],
+                                [threads[count - 1],
                                 threads[count - 2],
-                                threads[count - 3]],
+                                threads[count - 3],
+                                threads[count - 4]],
                         });
                 });
         },

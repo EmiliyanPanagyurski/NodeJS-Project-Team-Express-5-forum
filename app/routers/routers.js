@@ -23,6 +23,14 @@ const init = (app, data) => {
     app.get('/invalid', (req, res) => {
         res.render('invalid');
     });
+
+    app.get('/chatroom', (req, res) => {
+        if (req.isAuthenticated()) {
+            res.render('chatroom');
+        } else {
+            res.render('invalid', { notLogedIn: 'you must be loged in!' });
+        }
+    });
 };
 
 module.exports = { init };

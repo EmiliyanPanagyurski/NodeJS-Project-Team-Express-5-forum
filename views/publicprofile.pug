@@ -33,7 +33,10 @@ html
             <!-- left column -->
             div(class="col-md-3")
                 div(class="text-center")
-                    img(src="../static/images/default-img.gif" class="avatar img-circle" alt="avatar")
+                    if img === 'default-img.gif'
+                        img(src="../../static/images/uploads/" + img class="avatar img-circle" alt="avatar")
+                    else
+                        img(src="../../static/images/uploads/" + id + img class="avatar img-circle" alt="avatar")
             
             <!-- edit form column -->
             div(class="col-md-9 personal-info")
@@ -66,5 +69,3 @@ html
                         input(class="form-control" type="text" value=signature name="signature" readonly="true")
 
         hr
-    
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
