@@ -1,3 +1,8 @@
+const createDOMPurify = require('dompurify');
+const { JSDOM } = require('jsdom');
+const window = (new JSDOM('')).window;
+const DOMPurify = createDOMPurify(window);
+
 const init = (data) => {
     const ThreadsData = data.threads;
     const PostsData = data.posts;
@@ -20,12 +25,13 @@ const init = (data) => {
                 createdOn: createdOn,
                 content: content,
             }).then((createdThread) => {
+                const clean = DOMPurify.sanitize(createdThread.content);
                 PostsData.create({
                     parent: createdThread._id,
                     createdBy: createdThread.createdBy,
                     createdById: createdThread.createdById,
                     createdByImg: createdThread.createdByImg,
-                    content: createdThread.content,
+                    content: clean,
                     createdOn: createdThread.createdOn,
                 }).then((createdpost) => {
                     return res.redirect('/threadpage/' + createdpost.parent);
