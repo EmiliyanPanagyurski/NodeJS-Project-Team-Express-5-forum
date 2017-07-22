@@ -1,4 +1,8 @@
 const ObjectId = require('mongodb').ObjectId;
+const createDOMPurify = require('dompurify');
+const { JSDOM } = require('jsdom');
+const window = (new JSDOM('')).window;
+const DOMPurify = createDOMPurify(window);
 
 const init = (data) => {
     const PostData = data.posts;
@@ -9,12 +13,13 @@ const init = (data) => {
             const content = req.body.content;
             const createdOn = new Date();
             const createdById = req.user[0]._id;
+            const clean = DOMPurify.sanitize(content);
             PostData.create({
                 parent: parent,
                 createdBy: createdBy,
                 createdById: createdById,
                 createdByImg: req.user[0].img,
-                content: content,
+                content: clean,
                 createdOn: createdOn,
             }).then((createdPost) => {
                 return res.redirect('/threadpage/' + createdPost.parent);
