@@ -48,8 +48,10 @@ const init = (data) => {
                 });
         },
         getPublicProfile: (req, res) => {
-            if (req.user[0]._id.toString() === req.params.id) {
-                return res.redirect('/profile/' + req.user[0]._id);
+            if (req.isAuthenticated()) {
+                 if (req.user[0]._id.toString() === req.params.id) {
+                    return res.redirect('/profile/' + req.user[0]._id);
+                }
             }
 
             return UsersData.filterBy({ _id: new ObjectId(req.params.id) })
