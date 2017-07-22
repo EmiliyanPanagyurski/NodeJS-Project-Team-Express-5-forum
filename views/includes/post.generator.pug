@@ -12,4 +12,5 @@ if posts
             = post.createdBy
           small 
             = 'Posted on ' +  post.createdOn
-        p= post.content
+        p
+          != post.content
