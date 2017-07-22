@@ -1,3 +1,8 @@
+const createDOMPurify = require('dompurify');
+const { JSDOM } = require('jsdom');
+const window = (new JSDOM('')).window;
+const DOMPurify = createDOMPurify(window);
+
 const init = (data) => {
     const MessageData = data.messages;
 
@@ -7,12 +12,13 @@ const init = (data) => {
             const to = req.body.username;
             const heading = req.body.heading;
             const content = req.body.content;
+            const clean = DOMPurify.sanitize(content);
 
             MessageData.create({
                 from: from,
                 to: to,
                 heading: heading,
-                content: content,
+                content: clean,
             }).then((message) => {
                 return res.redirect('/');
             });
@@ -20,7 +26,6 @@ const init = (data) => {
         getMessages: (req, res) => {
             MessageData.filterBy({ to: req.user[0].username })
                 .then((messages) => {
-                    console.log(messages);
                     return res.render('inbox', { messages: messages });
                 });
         },
