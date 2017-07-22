@@ -3,6 +3,7 @@ const init = (app, data) => {
     require('./thread.router').init(app, data);
     require('./post.router').init(app, data);
     require('./thread.router/controller').init(data);
+    require('./message.router').init(app, data);
     const ThreadsController = require('./thread.router/controller').init(data);
 
     app.get('/', ThreadsController.getLatestThreads);

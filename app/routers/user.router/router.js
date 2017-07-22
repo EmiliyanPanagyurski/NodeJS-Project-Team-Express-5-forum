@@ -12,7 +12,7 @@ const init = (app, data) => {
             // id's must be equeall for loged in user and :id
             res.render('profile', { user: req.user });
         } else {
-            res.status(404).send('not loged in!');
+            res.render('invalid', { notLogedIn: 'you must be loged in!' });
         }
     });
 

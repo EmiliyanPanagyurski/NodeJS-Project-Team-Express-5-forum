@@ -7,7 +7,7 @@ const init = (app, data) => {
         if (req.isAuthenticated()) {
             res.render('createpost', { id: req.params.id });
         } else {
-            res.status(404).send('not loged in!');
+            res.render('invalid', { notLogedIn: 'you must be loged in!' });
         }
     });
 
