@@ -28,7 +28,7 @@ const init = (data) => {
                 });
         },
         updateProfile: (req, res) => {
-            UsersData.update({ username: req.body.username },
+            return UsersData.update({ username: req.body.username },
                 {
                     firstName: req.body.firstname,
                     lastName: req.body.lastname,
@@ -39,7 +39,7 @@ const init = (data) => {
                 });
         },
         updateProfileImage: (req, res) => {
-            UsersData.update({ username: req.user[0].username },
+            return UsersData.update({ username: req.user[0].username },
                 {
                     img: req.file.originalname,
                 })
@@ -48,7 +48,11 @@ const init = (data) => {
                 });
         },
         getPublicProfile: (req, res) => {
-            UsersData.filterBy({ _id: new ObjectId(req.params.id) })
+            if (req.user[0]._id.toString() === req.params.id) {
+                return res.redirect('/profile/' + req.user[0]._id);
+            }
+
+            return UsersData.filterBy({ _id: new ObjectId(req.params.id) })
                 .then((users) => {
                     return res.render('publicprofile',
                         {
