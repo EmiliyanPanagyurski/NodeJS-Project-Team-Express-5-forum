@@ -1,6 +1,48 @@
-if messages
-    div(class="row message-bubble")
-        p(class="text-muted")
-            | Matt Townsen
-        p
-            | Why is yo shit so broke?
+if messages.length !== 0
+    each message, index in messages
+        a(href="#" class="list-group-item list-group-item-action flex-column align-items-start")
+            div(class="d-flex w-100 justify-content-between")
+                h5(class="mb-1")
+                    = message.heading                 
+                    small
+                        | time recieved
+            p(class="mb-1")
+                = message.content
+            small
+                = 'send by ' + message.from
+            hr
+            button(type="button" class="btn btn-secondary" data-toggle="modal" data-target="#messageModal" + index)
+                | Respond
+            div(class="modal fade" id="messageModal" + index tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true")
+                div(class="modal-dialog" role="document")
+                    div(class="modal-content")
+                        div(class="modal-header")
+                            h5(class="modal-title" id="messageModalLabel")
+                                = 'New message:'
+                            button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                                span(aria-hidden="true") &times;
+                        div(class="modal-body")
+                            form(method="post" action="/message")
+                                div(class="form-group")
+                                    label(for="msg-to", class="form-control-label")
+                                        | Message to :
+                                    input(type="text" class="form-control" name="username" readonly=true value=message.from)
+                                div(class="form-group")
+                                    label(for="msg-heading" class="form-control-label")
+                                        | Message Heading
+                                    input(type="text" class="form-control" id="msg-heading" name="heading")
+                                div(class="form-group")
+                                    label(for="msg-content" class="form-control-label")
+                                        | Message content
+                                    textarea(class="form-control" id="msg-content" name="content")
+                                div(class="form-group")
+                                    button(type="button" class="btn btn-secondary" data-dismiss="modal")
+                                        | Close 
+                                    button(type="submit" class="btn btn-primary")
+                                        | Send message
+        hr
+else
+    a(href="#" class="list-group-item list-group-item-action flex-column align-items-start")
+        div(class="d-flex w-100 justify-content-between")
+            h5(class="mb-1")
+                | No messages.

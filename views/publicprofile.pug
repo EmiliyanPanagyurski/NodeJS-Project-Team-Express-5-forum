@@ -18,9 +18,10 @@ html
                         li(class="active")
                             a(href="/")
                                 | Home
-                        li
-                            a(href="#about")
-                                | About
+                        if authenticated
+                            li
+                                a(href="/chatroom")
+                                    | Chat Room
                         li
                             a(href="#contact")
                                 | Contact
@@ -37,6 +38,36 @@ html
                         img(src="../../static/images/uploads/" + img class="avatar img-circle" alt="avatar")
                     else
                         img(src="../../static/images/uploads/" + id + img class="avatar img-circle" alt="avatar")
+                    if authenticated
+                        button(type="button" class = "btn btn-primary" data-toggle="modal" data-target="#messageModal")
+                            | Send a message
+                        div(class="modal fade" id="messageModal" tabindex="-1" role="dialog" aria-labelledby="messageModalLabel" aria-hidden="true")
+                            div(class="modal-dialog" role="document")
+                                div(class="modal-content")
+                                    div(class="modal-header")
+                                        h5(class="modal-title" id="messageModalLabel")
+                                            = 'New message:'
+                                        button(type="button" class="close" data-dismiss="modal" aria-label="Close")
+                                            span(aria-hidden="true") &times;
+                                    div(class="modal-body")
+                                        form(method="post" action="/message")
+                                            div(class="form-group")
+                                                label(for="msg-to", class="form-control-label")
+                                                     | Message to :
+                                                input(type="text" class="form-control" name="username" readonly=true value=username)
+                                            div(class="form-group")
+                                                label(for="msg-heading" class="form-control-label")
+                                                     | Message Heading
+                                                input(type="text" class="form-control" id="msg-heading" name="heading")
+                                            div(class="form-group")
+                                                label(for="msg-content" class="form-control-label")
+                                                     | Message content
+                                                textarea(class="form-control" id="msg-content" name="content")
+                                            div(class="form-group")
+                                                button(type="button" class="btn btn-secondary" data-dismiss="modal")
+                                                     | Close 
+                                                button(type="submit" class="btn btn-primary")
+                                                     | Send message
             
             <!-- edit form column -->
             div(class="col-md-9 personal-info")
@@ -69,3 +100,4 @@ html
                         input(class="form-control" type="text" value=signature name="signature" readonly="true")
 
         hr
+        
