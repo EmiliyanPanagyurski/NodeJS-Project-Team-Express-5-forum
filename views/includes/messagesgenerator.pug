@@ -7,7 +7,7 @@ if messages.length !== 0
                     small
                         | time recieved
             p(class="mb-1")
-                = message.content
+                != message.content
             small
                 = 'send by ' + message.from
             hr
