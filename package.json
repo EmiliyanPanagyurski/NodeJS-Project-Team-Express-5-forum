@@ -4,8 +4,8 @@
   "description": "Course project Node js Telerik Academy",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "nodemon server.js",
+    "test": "./node_modules/.bin/_mocha test/unit/data/base.data.test.js"
   },
   "author": "Emiliyan Panagyurski",
   "license": "ISC",
@@ -27,7 +27,14 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
+    "chai": "^4.1.0",
     "eslint": "^4.2.0",
-    "eslint-config-google": "^0.9.1"
+    "eslint-config-google": "^0.9.1",
+    "gulp": "^3.9.1",
+    "gulp-istanbul": "^1.1.2",
+    "gulp-mocha": "^4.3.1",
+    "istanbul": "^0.4.5",
+    "mocha": "^3.4.2",
+    "sinon": "^2.3.8"
   }
 }
