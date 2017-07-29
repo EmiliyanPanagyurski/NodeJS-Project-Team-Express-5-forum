@@ -8,6 +8,7 @@ html
             | Invalid 
         link(href="http://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet")
         link(href="../static/css/invalid.css" rel="stylesheet")
+        link(rel="icon" href="../../static/images/icon.ico") 
     body
         if userNotExsit
             div(class="container")
@@ -29,13 +30,23 @@ html
                 div(class="starter-template")
                     a(class="class=btn btn-lg btn-success" role="button" href="/login")
                         | Log in
+        if imgError
+            div(class="container")
+                div(class="starter-template")
+                    h1
+                        | Sorry!
+                    h2
+                        = imgError
+                div(class="starter-template")
+                    a(class="class=btn btn-lg btn-success" role="button" href="/profile/" + user[0]._id)
+                        | Try aggain!
         else
             div(class="container")
                 div(class="starter-template")
                     h1
                         | Sorry!
                     h2
-                        | email or password are wrong!
+                        | password or username are wrong! 
                 div(class="starter-template")
                     a(class="class=btn btn-lg btn-success" role="button" href="/login")
                         | Try aggain! 
