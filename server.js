@@ -5,7 +5,6 @@ const async = () => {
 };
 
 const config = require('./config');
-const socket = require('socket.io');
 
 async()
     .then(() => require('./db').init(config.connectionString))
@@ -14,14 +13,5 @@ async()
     .then((app) => {
         const server = app.listen(config.port, () =>
             console.log(`server running`));
-
-        const io = socket(server);
-
-        io.on('connection', function(socket) {
-            console.log('made socket connection');
-
-            socket.on('chat', function(data) {
-                io.sockets.emit('chat', data);
-            });
-        });
+        require('./config/socketio.config').init(server);
     });
