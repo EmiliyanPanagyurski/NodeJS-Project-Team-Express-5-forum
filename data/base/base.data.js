@@ -19,11 +19,18 @@ class BaseMongodbData {
   }
 
   update(querry, prop) {
-        return this.collection.update(querry, { $set: prop })
-            .then((updatedUser) => {
-                return updatedUser;
-            });
-    }
+    return this.collection.update(querry, { $set: prop })
+      .then((updatedUser) => {
+          return updatedUser;
+      });
+  }
+
+  updateMany(querry, prop) {
+    return this.collection.updateMany(querry, { $set: prop })
+      .then((updatedCollection) => {
+        return updatedCollection;
+      });
+  }
 
   _getCollectionName() {
     return this.ModelClass.name.toLowerCase() + 's';

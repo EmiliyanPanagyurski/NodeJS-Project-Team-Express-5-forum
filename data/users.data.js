@@ -1,5 +1,6 @@
 const BaseData = require('./base/base.data');
 const User = require('../models/user.model');
+const bcrypt = require('bcryptjs');
 
 class UsersData extends BaseData {
     constructor(db) {
@@ -32,11 +33,16 @@ class UsersData extends BaseData {
     }
 
     comparePasswords(candidatePassword, realPassword, callback) {
-        if (candidatePassword !== realPassword) {
-            return callback(false);
+        if (bcrypt.compareSync(candidatePassword, realPassword)) {
+            return callback(true);
         }
 
-        return callback(true);
+        return callback(false);
+    }
+
+    hashPassword(password) {
+       const salt = bcrypt.genSaltSync(10);
+       return bcrypt.hashSync(password, salt);
     }
 }
 
