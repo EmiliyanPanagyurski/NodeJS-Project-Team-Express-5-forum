@@ -1,4 +1,4 @@
-/*eslint-disable */
+/* eslint-disable no-undefined */
 
 const ObjectId = require('mongodb').ObjectId;
 
@@ -85,5 +85,3 @@ const init = (data) => {
 };
 
 module.exports = { init };
-
-/*eslint-enable */
