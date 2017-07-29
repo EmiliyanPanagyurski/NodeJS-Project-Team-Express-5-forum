@@ -1,3 +1,6 @@
+/* eslint-disable no-console */
+/* eslint-disable no-shadow */
+
 const socket = require('socket.io');
 
 const init = (server) => {
