@@ -9,7 +9,6 @@ const init = (app, data) => {
 
     app.get('/profile/:id', (req, res) => {
         if (req.isAuthenticated()) {
-            // id's must be equeall for loged in user and :id
             res.render('profile', { user: req.user });
         } else {
             res.render('invalid', { notLogedIn: 'you must be loged in!' });

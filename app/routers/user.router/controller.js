@@ -1,11 +1,14 @@
+/*eslint-disable */
+
 const ObjectId = require('mongodb').ObjectId;
 
 const init = (data) => {
     const UsersData = data.users;
+    const PostsData = data.posts;
     return {
         register: (req, res) => {
             const username = req.body.username;
-            const password = req.body.password;
+            const password = UsersData.hashPassword(req.body.password);
             const email = req.body.email;
             UsersData.checkIfUsernameAndEmailAreFree(username, email)
                 .then((validator) => {
@@ -39,12 +42,21 @@ const init = (data) => {
                 });
         },
         updateProfileImage: (req, res) => {
+            if (req.file === undefined) {
+                return res.render('invalid',
+                    { imgError: 'must choose a file first' });
+            }
+
             return UsersData.update({ username: req.user[0].username },
                 {
                     img: req.file.originalname,
                 })
                 .then(() => {
-                    return res.redirect('/profile/' + req.user[0]._id);
+                    PostsData.updateMany({ createdBy: req.user[0].username },
+                    { createdByImg: req.file.originalname })
+                    .then(() => {
+                        return res.redirect('/profile/' + req.user[0]._id);
+                    });
                 });
         },
         getPublicProfile: (req, res) => {
@@ -73,3 +85,5 @@ const init = (data) => {
 };
 
 module.exports = { init };
+
+/*eslint-enable */
