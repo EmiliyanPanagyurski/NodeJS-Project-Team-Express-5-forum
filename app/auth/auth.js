@@ -2,6 +2,7 @@ const session = require('express-session');
 const passport = require('passport');
 const LocalStrategy = require('passport-local').Strategy;
 const ObjectId = require('mongodb').ObjectId;
+const bcrypt = require('bcryptjs');
 
 const init = (app, data) => {
     const UserData = data.users;
@@ -14,7 +15,7 @@ const init = (app, data) => {
                         return done(null, false, { message: 'Unknown User' });
                     }
 
-                    return UserData.comparePasswords(password, user[0].password,
+                    return UserData.comparePasswords(bcrypt, password, user[0].password,
                         function(Match) {
                             if (Match) {
                                 return done(null, user);
