@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+
 const socket = io.connect('http://localhost:3001');
 
 const message = document.getElementById('message-field');
