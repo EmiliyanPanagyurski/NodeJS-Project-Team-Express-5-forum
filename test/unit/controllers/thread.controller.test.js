@@ -1,6 +1,5 @@
 /* eslint-disable max-len */
 const { expect } = require('chai');
-const sinon = require('sinon');
 const { init } = require('../../../app/routers/thread.router/controller');
 
 describe('Thread controller tests:', () => {

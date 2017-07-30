@@ -13,6 +13,7 @@ describe('Message controller tests:', () => {
             },
         },
     };
+
     const user = {
         username: 'test',
     };
