@@ -14,17 +14,17 @@ const init = (data) => {
             const content = req.body.content;
             const clean = DOMPurify.sanitize(content);
 
-            MessageData.create({
+            return MessageData.create({
                 from: from,
                 to: to,
                 heading: heading,
                 content: clean,
             }).then((message) => {
-                return res.redirect('/');
+                return res.redirect(301, '/');
             });
         },
         getMessages: (req, res) => {
-            MessageData.filterBy({ to: req.user[0].username })
+            return MessageData.filterBy({ to: req.user[0].username })
                 .then((messages) => {
                     return res.render('inbox', { messages: messages });
                 });

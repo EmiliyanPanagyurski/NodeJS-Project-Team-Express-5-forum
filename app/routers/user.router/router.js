@@ -1,8 +1,9 @@
 const passport = require('passport');
 const multer = require('multer');
+const ObjectId = require('mongodb').ObjectId;
 
 const init = (app, data) => {
-    const UserController = require('./controller').init(data);
+    const UserController = require('./controller').init(data, ObjectId);
 
     const Storage = require('./imgUploaderConfig').init();
     const upload = multer({ storage: Storage });

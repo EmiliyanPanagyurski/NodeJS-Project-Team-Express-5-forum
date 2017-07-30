@@ -1,10 +1,9 @@
-const ObjectId = require('mongodb').ObjectId;
 const createDOMPurify = require('dompurify');
 const { JSDOM } = require('jsdom');
 const window = (new JSDOM('')).window;
 const DOMPurify = createDOMPurify(window);
 
-const init = (data) => {
+const init = (data, ObjectId) => {
     const PostData = data.posts;
     return {
         newPost: (req, res) => {
@@ -22,7 +21,7 @@ const init = (data) => {
                 content: clean,
                 createdOn: createdOn,
             }).then((createdPost) => {
-                return res.redirect('/threadpage/' + createdPost.parent);
+                return res.redirect(301, '/threadpage/' + createdPost.parent);
             });
         },
         getPosts: (req, res) => {

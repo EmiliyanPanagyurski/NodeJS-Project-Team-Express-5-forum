@@ -1,5 +1,7 @@
+const ObjectId = require('mongodb').ObjectId;
+
 const init = (app, data) => {
-    const PostController = require('./controller').init(data);
+    const PostController = require('./controller').init(data, ObjectId);
 
     app.get('/threadpage/:id', PostController.getPosts);
 

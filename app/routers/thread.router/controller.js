@@ -34,7 +34,7 @@ const init = (data) => {
                     content: clean,
                     createdOn: createdThread.createdOn,
                 }).then((createdpost) => {
-                    return res.redirect('/threadpage/' + createdpost.parent);
+                    return res.redirect(301, '/threadpage/' + createdpost.parent);
                 });
             });
         },

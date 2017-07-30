@@ -12,13 +12,13 @@ const init = (app, data) => {
         res.render('register');
     });
 
-     app.get('/login', (req, res) => {
+    app.get('/login', (req, res) => {
         res.render('login');
     });
 
     app.get('/logout', (req, res) => {
         req.logout();
-        res.redirect('/');
+        res.redirect(301, '/');
     });
 
     app.get('/invalid', (req, res) => {
