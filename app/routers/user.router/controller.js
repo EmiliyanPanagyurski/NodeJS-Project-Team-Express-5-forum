@@ -1,12 +1,13 @@
 /* eslint-disable no-undefined */
 /* eslint-disable max-len */
+const bcrypt = require('bcryptjs');
 
 const init = (data, ObjectId) => {
     return {
         register: (req, res) => {
             const UsersData = data.users;
             const username = req.body.username;
-            const password = UsersData.hashPassword(req.body.password);
+            const password = UsersData.hashPassword(req.body.password, bcrypt);
             const email = req.body.email;
             UsersData.checkIfUsernameAndEmailAreFree(username, email)
                 .then((validator) => {
