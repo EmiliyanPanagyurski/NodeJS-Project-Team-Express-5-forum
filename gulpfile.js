@@ -17,9 +17,10 @@ gulp.task('pre-test', () => {
         .pipe(istanbul.hookRequire());
 });
 
-gulp.task('tests:unit', ['pre-test'], () => {
+gulp.task('tests', ['pre-test'], () => {
     return gulp.src([
         './test/unit/**/*.js',
+        './test/integration/**/*.js',
     ])
         .pipe(mocha({
             reporter: 'nyan',
