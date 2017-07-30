@@ -28,27 +28,4 @@ describe('routers tests:', () => {
                 });
         });
     });
-
-    describe('/POST tests:', () => {
-        const post = {
-            parent: 'test',
-            createdBy: 'test',
-            createdById: 'test',
-            createdByImg: 'test',
-            content: 'test',
-            createdOn: 'test',
-        };
-        it('expect 200 on /createpost/:id', (done) => {
-            request(app)
-                .get('/createpost/:id')
-                .expect(200)
-                .end((err, res) => {
-                    if (err) {
-                        return done(err);
-                    }
-
-                    return done();
-                });
-        });
-    });
 });

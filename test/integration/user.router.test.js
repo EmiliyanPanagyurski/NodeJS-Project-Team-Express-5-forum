@@ -49,7 +49,7 @@ describe('routers tests:', () => {
         };
         const login = {
             username: 'test',
-            password: 'test', 
+            password: 'test',
         };
 
         it('expect to get 200 from /register', (done) => {
