@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+
 const { MongoClient } = require('mongodb');
 
 const init = (connectionString) => {
