@@ -20,8 +20,8 @@ class BaseMongodbData {
 
   update(querry, prop) {
     return this.collection.update(querry, { $set: prop })
-      .then((updatedUser) => {
-          return updatedUser;
+      .then((updated) => {
+          return updated;
       });
   }
 
