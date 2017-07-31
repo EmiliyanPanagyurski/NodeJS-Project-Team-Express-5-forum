@@ -119,9 +119,19 @@ describe('User controller tests:', () => {
         });
 
         it('expect getPublicProfile to return users when isAuthenticated is false', () => {
+            // just for the exept need id without _
+            const user = [{
+                username: 'test',
+                firstName: 'test',
+                lastName: 'test',
+                email: 'test',
+                signature: 'test',
+                img: 'test',
+                id: '1',
+            }];
             return UserController.getPublicProfile(req, res)
                 .then(() => {
-                    expect(res.context).to.eql(req.users[0]);
+                    expect(res.context).to.eql(user[0]);
                     expect(res.viewName).to.eql('publicprofile');
                 });
         });
