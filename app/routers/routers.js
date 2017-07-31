@@ -16,9 +16,9 @@ const init = (app, data) => {
         res.render('login');
     });
 
-    app.get('/logout', (req, res) => {
+    app.get('/logout/', (req, res) => {
         req.logout();
-        res.redirect(301, '/');
+        res.redirect('/');
     });
 
     app.get('/invalid', (req, res) => {
