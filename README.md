@@ -8,7 +8,7 @@ The following team members participated in the team project assignment as **Expr
 | -------------------------| ------------------------| -------------------------------------------------------------- 
 | Emiliyan Panagyurski     | *EmiliyanPanagyurski*   | [EmiliyanPanagyurski](https://github.com/EmiliyanPanagyurski) |
 
-### Runnign it locally
+### Running it locally
 You need to have:
 * Node js installed
 * Mongo db installed and running mongod
