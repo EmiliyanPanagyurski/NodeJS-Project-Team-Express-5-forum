@@ -28,7 +28,7 @@ describe('routers tests:', () => {
                 });
         });
 
-         it('expect 200 on /register route', (done) => {
+        it('expect 200 on /register route', (done) => {
             request(app)
                 .get('/register')
                 .expect(200)
@@ -41,7 +41,7 @@ describe('routers tests:', () => {
                 });
         });
 
-         it('expect 200 on /login route', (done) => {
+        it('expect 200 on /login route', (done) => {
             request(app)
                 .get('/login')
                 .expect(200)
@@ -54,10 +54,10 @@ describe('routers tests:', () => {
                 });
         });
 
-         it('expect 301 on /logout route', (done) => {
+        it('expect 301 on /logout route', (done) => {
             request(app)
-                .get('/logout')
-                .expect(301)
+                .get('/logout/')
+                .expect(302)
                 .end((err, res) => {
                     if (err) {
                         return done(err);
@@ -67,7 +67,7 @@ describe('routers tests:', () => {
                 });
         });
 
-         it('expect 200 on /invalid route', (done) => {
+        it('expect 200 on /invalid route', (done) => {
             request(app)
                 .get('/invalid')
                 .expect(200)
@@ -80,7 +80,7 @@ describe('routers tests:', () => {
                 });
         });
 
-         it('expect 200 on /chatroom route', (done) => {
+        it('expect 200 on /chatroom route', (done) => {
             request(app)
                 .get('/chatroom')
                 .expect(200)
