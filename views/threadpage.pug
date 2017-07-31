@@ -13,7 +13,7 @@ html
                         span(class="icon-bar")
                         span(class="icon-bar")
                     a(class="navbar-brand" href="/")
-                        | Project name
+                        | Express 5 Project Forum
                 div(id="navbar" class="collapse navbar-collapse")
                     ul(class="nav navbar-nav")
                         li(class="active")
@@ -30,11 +30,6 @@ html
                     p(class="pull-right visible-xs")
                         button(type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas")
                             | Toggle nav
-                    div(class="jumbotron")
-                        h1
-                            | Hello, world!
-                        p
-                            | This is an example to show the potential of an offcanvas layout pattern in Bootstrap. Try some responsive-range viewport sizes to see it in action.
                     div(class="row")
                         include includes/post.generator.pug
                 div(class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar")
@@ -45,7 +40,7 @@ html
                             | Profile
                         a(href="/inbox/user/" + user[0]._id class="list-group-item")
                             | Inbox
-                        a(href="/logout" class="list-group-item")
+                        a(href="/logout/" class="list-group-item")
                             | Logout
                         a(href="/createpost/" + posts[0].parent class="list-group-item")
                             | Post a reply
