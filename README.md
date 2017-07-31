@@ -1,2 +1,25 @@
 # NodeJS-Project-Team-Express-5-forum
-This is a project made by Emiliyan Panagyurski for the purpose showing what he has learned during the course NodeJS from Telerik Academy
+This is a general pupose forum.Has core functionality and features like registering users, profiles, public profiles creating threads and posts, sending messages to other users, uploading images.Has public chat. 
+
+### Team Members
+The following team members participated in the team project assignment as **Express 5'**:
+
+| Name                     | *Username*              | *GitHub*                                                      |
+| -------------------------| ------------------------| -------------------------------------------------------------- 
+| Emiliyan Panagyurski     | *EmiliyanPanagyurski*   | [EmiliyanPanagyurski](https://github.com/EmiliyanPanagyurski) |
+
+### Runnign it localy
+You need to have:
+* Node js installed
+* Mongo db installed and running mongod
+* 
+
+### TODO:
+The application is to be further developed by adding features like 
+* Adding account privileges ( admin, administrator, regular user )
+* Apropriate actions for admin and administrator like deleting post, closing thread etc.
+* Deleting messages in Inbox.
+* Additional information on threads like last post etc.
+* Additional information on topics like last thread etc.
+* And many more Forum features 
+
