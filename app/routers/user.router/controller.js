@@ -79,7 +79,7 @@ const init = (data, ObjectId) => {
                             email: users[0].email,
                             signature: users[0].signature,
                             img: users[0].img,
-                            _id: users[0]._id,
+                            id: users[0]._id,
                         }
                     );
                 });
