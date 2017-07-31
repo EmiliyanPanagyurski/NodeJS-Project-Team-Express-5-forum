@@ -12,7 +12,10 @@ The following team members participated in the team project assignment as **Expr
 You need to have:
 * Node js installed
 * Mongo db installed and running mongod
-* 
+* Start the command prompt into the folder where the application is.
+* Execute the command npm install to install all needed packages for the application.
+* Execute the command npm start
+* The application should start on http://localhost:3001
 
 ### TODO:
 The application is to be further developed by adding features like 
