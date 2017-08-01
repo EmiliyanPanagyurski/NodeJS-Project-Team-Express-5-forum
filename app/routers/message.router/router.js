@@ -3,7 +3,13 @@ const init = (app, data) => {
 
     app.post('/message', messageController.sendMessage);
 
-    app.get('/inbox/user/:id', messageController.getMessages);
+    app.get('/inbox/user/:id', (req, res) => {
+        if (req.isAuthenticated()) {
+            messageController.getMessages(req, res);
+        } else {
+            res.render('invalid', { notLogedIn: 'you must be loged in!' });
+        }
+    });
 };
 
 module.exports = { init };
