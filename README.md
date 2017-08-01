@@ -1,5 +1,5 @@
 # NodeJS-Project-Team-Express-5-forum
-This is a general pupose forum.Has core functionality and features like registering users, profiles, public profiles creating threads and posts, sending messages to other users, uploading images.Has public chat. 
+This is a general purpose forum.Has core functionality and features like registering users, profiles, public profiles creating threads and posts, sending messages to other users, uploading images.Has public chat. 
 
 ### Team Members
 The following team members participated in the team project assignment as **Express 5'**:
